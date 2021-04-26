@@ -44,11 +44,7 @@
 
 
 
-Examples of Laravel Admin LTE, </br> Yajra datatables, </br> Voyager Admin Panel, </br> Intervention Library, 
-				     </br>johnnyhuy/laravel-appointment-booking-system (false),
-                     </br>LaravelDaily/LaraAppointments-QuickAdminPanel (true),				   
-				     </br>aimeos-laravel, 
-                     </br>AvoRed Shopping Cart can be found here.
+
 
 
 

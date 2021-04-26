@@ -1,6 +1,9 @@
 <?php
 //https://www.webslesson.info/2019/10/laravel-6-crud-application-using-yajra-datatables-and-ajax.html
 
+//For example of {Yajra Datatable + Admin LTE } => see example at => https://github.com/dimmm931/Laravel_Yajra_DataTables_AdminLTE
+//Here {YajraDataTablesCrudController} is used for Rest CRUD + view display, Cleansed Yajra Dt+Admin LTE Version uses {YajraDataTablesCrudController} for Rest CUD only, "Read" and view is in {AdminLTEController}
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;

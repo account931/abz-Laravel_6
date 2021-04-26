@@ -1,6 +1,9 @@
 <?php 
 //Core/Minor working example of pure Yajra Datatable (i.e without Admin LTE) with CRUD, JS goes in the same file
 //https://www.webslesson.info/2019/10/laravel-6-crud-application-using-yajra-datatables-and-ajax.html 
+
+//For example of {Yajra Datatable + Admin LTE } => see example at => https://github.com/dimmm931/Laravel_Yajra_DataTables_AdminLTE
+//Here {YajraDataTablesCrudController} is used for Rest CRUD + view display, Cleansed Yajra Dt+Admin LTE Version uses {YajraDataTablesCrudController} for Rest CUD only, "Read" and view is in {AdminLTEController}
 ?>
 <html>
  <head>
@@ -435,7 +438,7 @@ $(document).ready(function(){
                 success:function(data)
                 {
                     var html = '';
-                    if (data.errors) {
+                    if (data.errors) { //array element {errors} is set in YajraDataTablesCrudController
                         html = '<div class="alert alert-danger">';
                         for(var count = 0; count < data.errors.length; count++)
                         {
@@ -446,7 +449,7 @@ $(document).ready(function(){
 				        $(".modal-title").stop().fadeOut("slow",function(){ $(this).html("<h4 style='color:red;padding:3em;'>ERROR!!! <br> Failed Saving/Editing</h4>")}).fadeIn(2000);
 				 
                     }
-                    if(data.success) {
+                    if(data.success) { //array element {success} is set in YajraDataTablesCrudController
                         html = '<div class="alert alert-success">' + data.success + '</div>';
                         $('#sample_form')[0].reset();
                         $('#user_table').DataTable().ajax.reload();
@@ -460,12 +463,12 @@ $(document).ready(function(){
 			        $('#formModal').animate({ scrollTop: 0 }, 'slow'); //scroll modal to top
 			
 			 
-                },/*
-		        error: function (error) { //don't need this ??????
+                },
+		        error: function (error) { //don't need this ?????? FALSE!!!!!! DO need it
 			        console.log(error);
                     $(".modal-title").stop().fadeOut("slow",function(){ $(this).html("<h4 style='color:red;padding:3em;'>ERROR!!! <br> Failed Saving/Editing</h4>")}).fadeIn(2000);
                     //$("html, body").animate({ scrollTop: 0 }, "slow");	 //scroll
-		        }	*/
+		        }	
 		 
             });
 	 
@@ -589,7 +592,8 @@ $(document).ready(function(){
 				 $('#ok_button').html('Deleted OK');
 				 $('#ok_button').prop('disabled', false); //normalize button (make active) 
                  //alert('Data Deleted');
-				 swal("!", "Data Deleted", "warning");
+				 swal("!", "Data Deleted successfully. Subordinates are reaasigned to new superior", "success");
+
 
               }, 2000);
          }
